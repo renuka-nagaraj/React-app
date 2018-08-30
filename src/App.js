@@ -1,80 +1,75 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import data from './book.json';
 
 class App extends Component {
   constructor(){
     super();
+    this.handleChange = this.handleChange.bind(this); // handleChange being bind with this
     this.state = {
-      data:[
-        {
-        "id":"1",
-        "name": "harry potter",
-        "rating": "4.5",
-        "author": "J. K. Rowling",
-        "genre": "fiction"
-        },
-        {
-        "id":"2",
-        "name": "design of everyday things",
-        "rating": "4.8",
-        "author": "Don Norman",
-        "genre": "design"
-        },
-        {
-        "id":"3",
-        "name": "Into the wild",
-        "rating": "4",
-        "author": "Jon Krakauer",
-        "genre": "philosophy"
-        },
-        {
-        "id":"4",
-        "name": "How to unleash your potential",
-        "rating": "4.2",
-        "author": "shivam",
-        "genre": "philosophy"
-        }
-        ]
+      data:data,
+      value:'',                                 //get data from Json
+     
     }
+   
+  }
+  handleChange(event) {
+    console.log("values from text",event.target.value);
+    this.setState({value: event.target.value});
   }
   render() {
-    debugger;
-          const ans = this.state.data;
-          console.log(ans[0].name);
+   
+          let ans = this.state.data;
+          let value = this.state.value;
+          
+          debugger;
+          //Filter the values based on rating,name,genre
+          if(value.length>0){
+            ans = data.filter(function(movie){ 
+              return movie.rating.match(value) ||movie.name.match(value) || movie.genre.match(value)  ;
+              });
+            }
+           
+          //console.log(value);
     return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Welcome to React</h1>
-      //   </header>
-      //   <p className="App-intro">
-      //     this.state.data.map
-      //   </p>
-      // </div>
+     
       <div className="App">
+        {/* ------------header starting------------ */}
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1 className="App-title">Welcome to MindTree Library!....</h1>
         </header>
-    
+       {/* ------------header ending------------ */}
+
+       {/* ------------Searchbox starting------------ */}
+            <div className="App-border">
+            <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Search"/>
+           
+            </div>
+            
+         {/* ------------Searchbox ending------------ */}
+        <div class="row"className="App-border">
+            <div class="col-sm-3" >Name</div>
+            <div class="col-sm-3">Author</div>
+            <div class="col-sm-3">Genre</div>
+            <div class="col-sm-3">Rating</div>
+          </div>
+        <div>
+          <br/>
+        <br/>
+        </div>
+     {/* ------------Getting value from json------------ */}
      {ans.map(function(name, index){
           return (
-            <table>
-             
-              <tr>
-                <td> <p key={ index }>{name.name}</p></td>
-               
-                <td> <p key={ index }>{name.author}</p></td>
-                <td></td>
-                <td> <p key={ index }>{name.genre}</p></td>
-                <td> <p key={ index }>{name.rating}</p></td>
-              </tr>
-            </table>
 
-           
-                     
-            )
+            <div class="row">
+            <div class="col-sm-3"><p key={ index }>{name.name}</p></div>
+            <div class="col-sm-3"><p key={ index }>{name.author}</p></div>
+            <div class="col-sm-3"><p key={ index }>{name.genre}</p></div>
+            <div class="col-sm-3"><p key={ index }>{name.rating}</p></div>
+          </div>
+           )
           
        })}
  
