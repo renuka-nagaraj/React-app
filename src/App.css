@@ -30,6 +30,13 @@
   /* border:1px solid black; */
   margin-top:20px;
 }
+.image{
+  height: 150px;
+  width: 120px;
+}
+.movieName{
+  padding-left:-630px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

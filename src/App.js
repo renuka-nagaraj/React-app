@@ -45,29 +45,39 @@ class App extends Component {
        {/* ------------Searchbox starting------------ */}
             <div className="App-border">
             <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Search"/>
-           
+           <br/>
+           <br/>
+           <br/>
             </div>
             
          {/* ------------Searchbox ending------------ */}
-        <div class="row"className="App-border">
+        {/* <div class="row"className="App-border">
             <div class="col-sm-3" >Name</div>
             <div class="col-sm-3">Author</div>
             <div class="col-sm-3">Genre</div>
             <div class="col-sm-3">Rating</div>
-          </div>
-        <div>
-          <br/>
-        <br/>
-        </div>
+          </div> */}
+       
      {/* ------------Getting value from json------------ */}
      {ans.map(function(name, index){
           return (
 
             <div class="row">
-            <div class="col-sm-3"><p key={ index }>{name.name}</p></div>
-            <div class="col-sm-3"><p key={ index }>{name.author}</p></div>
-            <div class="col-sm-3"><p key={ index }>{name.genre}</p></div>
-            <div class="col-sm-3"><p key={ index }>{name.rating}</p></div>
+            <div class="col-sm-5">
+             <img src={name.image} class="image"/><br/>
+             <a href="#">Read</a>
+            </div>
+            <div class="col-sm-5">
+            <p key={ index }>{name.name}</p>
+            <p key={ index }>Author:{name.author}</p>
+            <p key={ index }>Genre:{name.genre}</p>
+            <p key={ index }>Rating:{name.rating}</p>
+            <br/><br/>
+            <br/><br/>
+              </div>
+             
+            {/* <div class="col-sm-3"><p key={ index }>{name.genre}</p></div>
+            <div class="col-sm-3"><p key={ index }>{name.rating}</p></div> */}
           </div>
            )
           

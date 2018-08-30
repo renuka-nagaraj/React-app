@@ -4,27 +4,31 @@
     "name": "harry potter",
     "rating": "4.5",
     "author": "J. K. Rowling",
-    "genre": "fiction"
+    "genre": "fiction",
+    "image":"/images/harrypotter.jpg"
     },
     {
     "id":"2",
     "name": "design of everyday things",
     "rating": "4.8",
     "author": "Don Norman",
-    "genre": "design"
+    "genre": "design",
+    "image":"/images/Design.jpg"
     },
     {
     "id":"3",
     "name": "Into the wild",
     "rating": "4",
     "author": "Jon Krakauer",
-    "genre": "philosophy"
+    "genre": "philosophy",
+    "image":"/images/intothe.jpg"
     },
     {
     "id":"4",
     "name": "How to unleash your potential",
     "rating": "4.2",
     "author": "shivam",
-    "genre": "philosophy"
+    "genre": "philosophy",
+    "image":"/images/unleashbig.jpeg"
     }
     ]
